@@ -1,0 +1,202 @@
+﻿@model OSsite.Models.SIGNIN
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/bootstrap.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/font-awesome.css")
+    @Styles.Render("~/Content/Site.css")
+</head>
+<body>
+    <!--Start upper Bar-->
+    <div class="upper-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <i class="fa fa-phone" style="color:#fff"> </i> 01554790536 , <i class="fa fa-envelope-square" style="color:#fff"> </i> <a href="mailto:ostaem03@gmail.com">osteam03@gmail.com</a>
+                </div>
+                <div class="col-sm text-right">
+                    <span>We are here to help you</span>
+                    <!--<span class="get-quote"style="border:1px solid #fff;  font-weight:bolder; color:#fff; border-radius:5px " >OSOS</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End upper Bar-->
+    <!--Start navBar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">  <img src="~/img/logo.jpg" />   </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    @Html.ActionLink("Home", "Index", null, new { @class = "nav-link" })
+                    @*<a class="nav-link" href="#">Home </a>*@
+                </li>
+                <li>
+                    @Html.ActionLink("Contact Us", "Contact", null, new { @class = "nav-link" })
+                </li>
+                @if (Model.Name == null)
+                {
+                    <li>
+                        @Html.ActionLink("Sign IN", "SginIn", "Users", null, new { @class = "nav-link" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Sign UP", "Create", "Users", null, new { @class = "nav-link" })
+                    </li>
+                }
+                @if (Model.Name != null)
+                {
+                    <li>
+                        @Html.ActionLink("logout", "logout", "Users", null, new { @class = "nav-link" })
+                    </li>
+                }
+            </ul>
+            @using (Html.BeginForm("Search","Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-inline my-2 my-lg-0">
+                    <input type="search" name="textbox" class="form-control mr-sm-2"/>
+                    <input type="submit" value="Submit" class="btn btn btn-primary my-2 my-sm-0"/>
+                </div>
+            }
+            @*@using (Html.BeginForm("Contact"))
+            {
+                <div class="form-inline my-2 my-lg-0">
+                    <input type="search" class="form-control mr-sm-2" name="sstring" />
+
+                    @Html.TextBoxFor(model => model.SearchString, new { @class = "form-control mr-sm-2", @type = "search" })
+                    <input type="submit" class="btn btn btn-primary my-2 my-sm-0" value="search" style="color:#faf9f9 ; border:1px solid #057ab0 ;background:#057ab0;" />
+
+                </div>
+
+
+            }*@
+        </div>
+    </nav>
+    <!--End navBar-->
+    
+    <div class="body-content">
+        @RenderBody()
+        <hr />
+        <!-- Site footer -->
+        <!-- Footer -->
+        <footer class="page-footer font-small mdb-color pt-4">
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left">
+
+                <!-- Footer links -->
+                <div class="row text-center text-md-left mt-3 pb-3">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="color:whitesmoke">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">OS team</h6>
+                        <p>
+                            We Are the first egyption website for online shopping,
+                            The cheapest in Egypt<br />
+                            Be BOSS , and choose OS
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3" style="color:whitesmoke">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+                        <p>
+                            @Html.ActionLink("Contact Us", "Contact", null, new { @class = "nav-link" })
+
+                        </p>
+                        <p>
+                            <a href="#!">Become an Affiliate</a>
+                        </p>
+                        <p>
+                            <a href="#!">Shipping Rates</a>
+                        </p>
+                        <p>
+                            <a href="#!">Help</a>
+                        </p>
+                    </div>
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3" style="color:whitesmoke ">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                        <p>
+                            <i class="fa fa-home mr-3"></i> Eygpt cairo
+                        </p>
+                        <p>
+                            <a href="mailto:ostaem03@gmail.com"><i class="fa fa-envelope mr-3"></i> ostaem03@gmail.com</a>
+                        </p>
+                        <p>
+                            <i class="fa fa-phone mr-3"></i> + 01 554 790 536
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Footer links -->
+
+                <hr>
+
+                <!-- Grid row -->
+                <div class="row d-flex align-items-center">
+
+                    <!-- Grid column -->
+                    <div class="col-md-7 col-lg-8">
+
+                        <!--Copyright-->
+                        <p class="text-center text-md-left" style="color:lightgray">
+                            © 2020 Copyright received
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-5 col-lg-4 ml-lg-0">
+
+                        <!-- Social buttons -->
+                        <div class="text-center text-md-right" style="color:whitesmoke">
+                            <ul class="list-unstyled list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#"class="btn-floating btn-sm rgba-white-slight mx-1">
+                                        <i class="fa fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Footer Links -->
+
+        </footer>
+        <!-- Footer -->
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

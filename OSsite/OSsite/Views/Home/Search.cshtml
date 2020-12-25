@@ -1,0 +1,62 @@
+﻿@model OSsite.Models.SIGNIN
+@{
+    //ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/bootstrap.css")
+@Styles.Render("~/Content/font-awesome.css")
+@Styles.Render("~/Content/Site.css")
+<head>
+    <title>search result</title>
+</head>
+<div style="background-color:#057ab0; height:150px; padding:50px">
+    <div class="container">
+        <div class="row just-center">
+            <div class="col-9">
+                @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-inline my-2 my-lg-0">
+                        <input type="search" name="textbox" class="form-control mr-sm-2 col-10" />
+                        <input type="submit" value="Submit" class="btn btn btn-primary my-2 my-sm-0" />
+                        <p style="color:white; font-size:20px">Search result</p>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row just-center">
+    @foreach (var item in ViewBag.Message)
+    {
+        var base64 = Convert.ToBase64String(item.img);
+        var imgSrc = String.Format("data:image/png;base64,{0}", base64);
+        <div class="window col-lg-2 col-md-3 col-sm-4  col-xs-4 ">
+            <div class="row">
+                <img src='@imgSrc' style="width:210px" />
+            </div>
+            <br />
+            <div class="row p-3">
+                <span>@item.model</span>-
+                <span>@item.Details</span>-
+                <span>@item.Brand</span>-
+                <br>
+                <span><i class="fa fa-dollar-sign"></i> @item.Price</span>$-
+                <br>
+                @if (item.sale != 0)
+                {
+                    <br />
+                    <div class="sale">@item.sale</div>
+                    @*@Html.DisplayFor(modelItem => item.sale, new { @class = "sale" })////////////////creat class sale in css*@
+                }
+            </div>
+            <div class="m-2">
+                <i class="fa fa-shopping-cart"></i>
+                @Html.ActionLink("Buy", "GetOrdersFromACC", "Users", new { id = item.ProductID }, null)
+            </div>
+        </div>
+    }
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Scripts/bootstrap.js")

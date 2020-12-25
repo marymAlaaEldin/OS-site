@@ -1,0 +1,29 @@
+﻿@model OSsite.Models.ContactU
+
+@{
+    ViewBag.Title = "MessageDetails";
+     Layout = "~/Views/Admins/Shared in Admin/_LayoutAdmin.cshtml";
+}
+
+<h2 class="mt-4">MessageDetails</h2>
+<hr />
+<div>
+
+    <dl class="dl-horizontal" style="font-size:larger">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message):
+        </dt>
+
+        <dd style="background-color:#ececec ;padding:5px">
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+    </dl>
+</div>

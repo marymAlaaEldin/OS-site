@@ -1,0 +1,50 @@
+﻿@model OSsite.Models.Order
+
+@{
+    ViewBag.Title = "MessageDetails";
+    Layout = "~/Views/Admins/Shared in Admin/_LayoutAdmin.cshtml";
+}
+
+<h2 class="mt-4">Orders Details</h2>
+<hr />
+<div>
+
+    <dl class="dl-horizontal" style="font-size:larger">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductID):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType)
+        </dd>
+        <dt>
+            order confirmed from user:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsValid)
+        </dd>
+    </dl>
+</div>

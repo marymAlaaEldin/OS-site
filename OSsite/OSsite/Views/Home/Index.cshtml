@@ -1,0 +1,56 @@
+﻿@model OSsite.Models.SIGNIN
+
+@{
+    ViewBag.Title = "OSOS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/bootstrap.css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/Scripts/modernizr-2.8.3.js")
+@Styles.Render("~/Content/Site.css")
+<div>
+    <!--start content-->
+    <!--start home-->
+    <div class="content">
+        <header class="header">
+
+            <div class="text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary-main"> OSOS</span>
+                    <span class="heading-primary-sub">We Are here to help you to choose what you want from your home</span>
+                </h1>
+
+                <a href="#" class="btn btn-white btn-animated">Who Are us ?</a>
+            </div>
+        </header>
+    </div>
+    <!--end home-->
+    @{
+        <!--start labtobs slid-->
+        Html.RenderAction("RenderLaptops", "Home");
+        <hr />
+        Html.RenderAction("RenderAccessories", "Home");
+        <hr />
+        Html.RenderAction("RenderPhones", "Home");
+        <hr />
+        Html.RenderAction("RenderClothes", "Home");
+    }
+
+    <!--start About-->
+    <div class="About">
+        <div class="text-box">
+            <h1>O  S  O  S  </h1>
+            <span>We Are the first egyption website for online shopping</span><br>
+            <span>The cheapest in Egypt</span><br>
+            <span>Be BOSS , and choose OS</span><br>
+        </div>
+    </div>
+    <!--end About-->
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Scripts/bootstrap.js")
+@Scripts.Render("~/bundles/bootstrap")
+
+

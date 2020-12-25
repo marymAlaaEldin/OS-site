@@ -1,0 +1,49 @@
+﻿@model IEnumerable<OSsite.Models.Phone>
+    
+
+@Styles.Render("~/Content/bootstrap.css")
+@Styles.Render("~/Content/font-awesome.css")
+
+<div class="Accessories container">
+    <h3 class="row">phone</h3>
+    <div class="row just-center" style="height:auto;">
+        <!--cards-->
+        @foreach (var item in Model)
+        {
+            var base64 = Convert.ToBase64String(item.img);
+            var imgSrc = String.Format("data:image/png;base64,{0}", base64);
+            <div class="window col-lg-2 col-md-3 col-sm-4  col-xs-4 ">
+                <div class="row">
+                    <img src='@imgSrc' />
+                </div>
+
+                <br />
+                <div class="row p-3">
+                    @Html.DisplayFor(modelItem => item.model, new { @class = "d-block" })-
+                    @Html.DisplayFor(modelItem => item.Details)-
+                    <br />
+                    @Html.DisplayFor(modelItem => item.Brand)-
+                    <br />
+                    @Html.DisplayFor(modelItem => item.Price)$-
+                    @if (item.sale != 0)
+                    {
+                        <br />
+                        @Html.DisplayFor(modelItem => item.sale, new { @class = "sale" })////////////////creat class sale in css
+                    }
+                </div>
+
+                <div class="m-2">
+                    <i class="fa fa-shopping-cart"></i>
+                    @Html.ActionLink("Buy", "GetOrdersFrompho", "Users", new { id = item.ProductID }, null)
+                </div>
+            </div>
+            if (Model.Count() == (item.ProductID - 15))
+            {
+                break;
+            }
+
+        
+        }
+    </div>
+
+</div>

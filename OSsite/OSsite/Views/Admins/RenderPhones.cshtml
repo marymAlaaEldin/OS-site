@@ -1,0 +1,82 @@
+﻿@model IEnumerable<OSsite.Models.Phone>
+
+@{
+    ViewBag.Title = "ProductsData";
+}
+@Styles.Render("~/Content/osDashboard.css")
+<h3>Phones</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PicesNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.img)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        var base64 = Convert.ToBase64String(item.img);
+        var imgSrc = String.Format("data:image/png;base64,{0}", base64);
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PicesNo)
+            </td>
+            <td>
+                <img src='@imgSrc' style="max-width:300px; max-height:100px;" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditPhone", new { id = item.ProductID },null) |
+                @Html.ActionLink("Delete", "DeletePhone", new { id = item.ProductID },null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+

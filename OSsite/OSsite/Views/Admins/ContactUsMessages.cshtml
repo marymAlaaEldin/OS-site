@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OSsite.Models.ContactU>
+
+@{
+    ViewBag.Title = "ContactUsMessages";
+    Layout = "~/Views/Admins/Shared in Admin/_LayoutAdmin.cshtml";
+}
+@*@Scripts.Render("~/Scripts/fontawesomeAll.min.js")*@
+<h3 class="mt-3">ContactUs Messages</h3>
+<hr />
+
+@foreach (var item in Model.Reverse())
+{
+    <div class="row">
+        <div class="col-9 messageTitle">
+           <span>Message from</span> @Html.DisplayFor(modelItem => item.Email) @if (item.readed == false){<i class="fa fa-circle"></i>}
+        </div>
+        <div class="col-3">
+            <span id="ActionLink">@Html.ActionLink("Details", "MessageDetails", new { id = item.messageID })</span>
+
+        </div>
+    </div>
+    <hr />
+}
+<script>
+    $(document).ready(function(){
+        $("#ActionLink").click(function () {
+            $(this).parent().parent().children(".messageTitle").children("i").hide();
+            
+        });
+});
+</script>
+
+

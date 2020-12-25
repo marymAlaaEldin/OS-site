@@ -1,0 +1,148 @@
+/*
+first-color:#484848
+second-color:#057ab0
+
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.side-menu
+{
+    position: fixed;
+    background: #999;
+    width: 20%;
+    height: 100%;
+    
+}
+.side-menu img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-top: 30px;
+    border: 3px solid #fff;
+}
+.side-menu h5
+{
+    color: white;
+}
+.side-menu div
+{
+    display: block;
+    line-height: 40px;
+    transition: .5s;
+    
+}
+.ActionLink
+{
+    color:white;
+}
+.ActionLink:hover {
+    color: white;
+    text-decoration-line:none;
+}
+.side-menu div:hover {
+        background: #484848;
+        padding-left: 20px;
+        text-decoration: none;
+    }
+.side-menu span
+{
+    font-size: 20px;
+    margin-left: 10px;
+    color: white;
+}
+.side-menu i
+{
+    font-size: 20px;
+    margin-left: 10px;
+    color: white;
+}
+nav .menu-bar
+{
+    float: right;
+    margin:20px ;
+    display: none;
+}
+#menu
+{
+   display: none;
+}
+.side-menu .logout
+{
+    display: none;
+}
+@media (max-width:850px)
+{
+    .side-menu div span
+    {
+        display: none;
+    }
+    .side-menu center
+    {
+        display: none;
+    }
+    .side-menu a i
+    {
+        display: block;
+        line-height: 80px;
+        text-align: center;
+        margin-left: 0;
+        font-size: 35px;
+    }
+    .data
+    {
+        margin-left: 20%;
+
+    }
+}
+
+@media(max-width:650px)
+{
+    .data{
+        display: none;
+    }
+    
+    .side-menu
+    {
+        width: 100%;
+        text-align: center;
+        background-color:#057ab0 ;
+        transition: all .5s;
+        
+    }
+    .side-menu a i 
+    {
+        display: none;
+    }
+    .side-menu a span 
+    {
+        display: block;
+    }
+    .side-menu .logout
+    {
+        display: block;
+    }
+}
+.data
+{
+    margin-left:20%;
+}
+th {
+    color: #999;
+}
+h3 {
+    color: #057ab0;
+}
+.messageTitle {
+    font-size: larger;
+    font-weight: bold
+}
+.fa {
+    color: indianred;
+}

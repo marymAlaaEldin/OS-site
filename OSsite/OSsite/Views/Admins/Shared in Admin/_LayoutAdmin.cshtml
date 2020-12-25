@@ -1,0 +1,83 @@
+﻿@{ 
+    var AdminData = ViewBag.Message;
+    if(ViewBag.Message==null)
+    {
+        Response.Redirect("~/Admins/LogIN");
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    @*<link rel="shortcut icon" type="Image/.jpeg" href="img/IMG-20200807-WA0035.jpg">*@
+
+    <title>os dashboard</title>
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/font-awesome.css")
+    @Styles.Render("~/Content/osDashboard.css")
+
+</head>
+
+<body>
+    <input type="checkbox" id="menu">
+    <!--start nav  -->
+    <nav class="navbar sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="#"
+           style="font-size:22px; padding:6px 15px;
+                    font-weight:600;
+                    color:#057ab0;
+                    text-shadow:1px 1px 3px #999;
+                    left:10px">
+            OS Admin
+        </a>
+        @Html.ActionLink("Logout", "Logout", null, new { @class = "nav-link" })
+        @*<form class="form-inline my-2 my-lg-0 " style="right: 20px;">
+            <label for="menu" class="menu-bar">
+                <i class="fa fa-bars"></i>
+            </label>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+
+        </form>*@
+    </nav>
+    <!--end nav  -->
+    <!--start sidemenu-->
+    <div class="side-menu ">
+        <center>
+            @*<img src="img/_20200927_225314.JPG" alt="profile-image">*@
+            <br><br>
+            <i class="fa fa-user-secret" style="font-size:75px"></i>
+            <h5>@AdminData.name</h5>
+        </center>
+        <br>
+
+        <div><i class="fa fa-desktop"></i> <span>Dashboard</span></div>
+        <div><i class="fa fa-users"></i> <span>@Html.ActionLink("Users Data", "UsersData", null, new { @class = "ActionLink" }) </span></div>
+        <div><i class="fa fa-envelope"></i> <span>@Html.ActionLink("ContactUs Messages", "ContactUsMessages", null, new { @class = "ActionLink" }) </span></div>
+        <div><i class="fa fa-shopping-basket"></i> <span>@Html.ActionLink("Orders", "OrdersData", null, new { @class = "ActionLink" })</span></div>
+        <div>
+            <i class="fa fa-plus"></i><span> Add product</span>
+            <ul style="margin-left:35px;">
+                <li>@Html.ActionLink("Add Laptop", "AddLaptop", null, new { @class = "ActionLink" })</li>
+                <li>@Html.ActionLink("Add Phone", "AddPhone", null, new { @class = "ActionLink" })</li>
+                <li>@Html.ActionLink("Add Accessoy", "AddAccessory", null, new { @class = "ActionLink" })</li>
+                <li>@Html.ActionLink("Add Clothes", "AddClothes", null, new { @class = "ActionLink" })</li>
+            </ul>
+        </div>
+        <div href="#"><i class="fa fa-database"></i> <span>@Html.ActionLink("Products Data", "ProductsData", null, new { @class = "ActionLink" })</span></div>
+        @if (AdminData.Type == "supperAdmin")
+        {<div href="#"><i class="fa fa-user"></i> <span>@Html.ActionLink("Add new Admin", "Create", null, new { @class = "ActionLink" })</span></div>}
+    </div>
+    <!--end sidemenu-->
+    <div class="data container">
+        @RenderBody()
+        <hr />
+    </div>
+</body>
+
+</html>
+

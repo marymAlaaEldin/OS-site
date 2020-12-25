@@ -1,0 +1,462 @@
+﻿/*
+first-color:#484848
+second-color:#057ab0
+
+*/
+* {
+    
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/*Start Upper Bar*/
+
+.upper-bar {
+    background-color: #057ab0;
+    color: #fff;
+    padding: 10px;
+}
+
+    .upper-bar span {
+        color: #e8ebec
+    }
+
+    .upper-bar .get-quote {
+        display: inline-block;
+        border: 1px solid #d8d7d7;
+        padding: 2px 10px;
+        margin-left: 20px;
+    }
+/*end Upper Bar*/
+
+.container-fluid {
+    padding: 0;
+    text-align: center;
+}
+
+nav img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 9px rgb(139, 139, 139);
+}
+
+/* start content*/
+
+/****start home***/
+.content .header {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    color: #252525;
+    padding-top: 50px;
+    background-image: linear-gradient( to right bottom, #13a2e4cc, #043349e7), url(../img/20838563_m.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 60%);
+    text-transform: uppercase;
+}
+
+    .content .header .text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .content .header .heading-primary-main {
+        display: block;
+        font-size: 70px;
+        font-weight: 700;
+        letter-spacing: 35px;
+        text-shadow: 1px 1px 3px rgb(88, 87, 87);
+        animation-name: moveInLeft;
+        animation-duration: 2s;
+    }
+
+    .content .header .heading-primary-sub {
+        display: block;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        animation-name: moveInRight;
+        animation-duration: 2s;
+        margin-bottom: 60px;
+    }
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+header .btn:link,
+header .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 45px;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+
+header .btn {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+    header .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 10px 20px rgba(0,0,0,.2);
+    }
+
+    header .btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+    }
+
+header .btn-white {
+    background-color: #fff;
+    color: #484848;
+}
+
+header .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+header .btn-white::after {
+    background-color: #fff;
+}
+
+header .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+header .btn-animated {
+    animation: moveInBottom .5s ease-in-out .75s;
+    animation-fill-mode: backwards;
+}
+/****end home***/
+
+
+
+
+/*start labtops **/
+.Labtobs {
+    width: 100%;
+    height: 100vh;
+}
+
+    .Labtobs h3 {
+        color: #484848;
+        font-size: 30px;
+        text-shadow: 2px 2px 5px 5PX #999;
+        padding: 10px;
+    }
+
+/*end labtops **/
+
+
+/*start Phones **/
+.Phones {
+    width: 100%;
+    height: 100vh;
+}
+
+    .Phones h3 {
+        color: #484848;
+        font-size: 30px;
+        text-shadow: 2px 2px 5px 5PX #999;
+    }
+
+    .Phones img {
+        height: 100px;
+        width: 50%;
+        float: left;
+        margin-bottom: 20px;
+    }
+/**end phones **/
+
+
+
+/*start Accessories **/
+.Accessories {
+    width: 100%;
+    height: 100vh;
+}
+
+    .Accessories h3 {
+        color: #484848;
+        font-size: 30px;
+        text-shadow: 2px 2px 5px 5PX #999;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+.row {
+    margin: auto;
+    text-align: center;
+}
+
+    .row .window {
+        height: 400px;
+        width: 100%;
+        background: #fff;
+        color: #222;
+        margin: 30px;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+        .row .window:hover {
+            box-shadow: 1px 1px 9px 2px #bfc6c9;
+        }
+
+.Accessories .window img {
+    height: 100px;
+    width:100%;
+    margin-bottom: 20px;
+}
+/**end Accessories **/
+
+
+
+
+/*****Start boxes ****/
+.row {
+    margin: auto;
+    text-align: center;
+}
+
+    .row .window {
+        height: 400px;
+        width: 200px;
+        background: #fff;
+        color: #222;
+        margin: 30px;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+        .row .window:hover {
+            box-shadow: 1px 1px 9px 2px #bfc6c9;
+        }
+
+.Labtobs .window img {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 30px;
+}
+/***** End boxes ****/
+
+
+
+
+/****start clothes****/
+
+.clothes {
+    width: 100%;
+    height: 100vh;
+}
+
+    .clothes h3 {
+        color: #484848;
+        font-size: 30px;
+        text-shadow: 2px 2px 5px 5PX #999;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+.row {
+    margin: auto;
+    text-align: center;
+}
+
+    .row .window {
+        height: 400px;
+        width: 200px;
+        background: #fff;
+        color: #222;
+        margin: 30px;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+        .row .window:hover {
+            box-shadow: 1px 1px 9px 2px #bfc6c9;
+        }
+
+.clothes .window img {
+    height: 100px;
+   /* width: 50%;*/
+    float: left;
+    margin-bottom: 20px;
+}
+
+
+/****end clothes****/
+
+
+
+/****start About***/
+.About {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    color: #252525;
+    font-size: 30px;
+    padding-top: 200px;
+    background-image: linear-gradient( to right bottom, #62b1d681, #036a997e), url(../img/20838563_m.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    clip-path: polygon( 0 20%, 100% 0, 100% 80%, 0 100%);
+}
+
+    .About h1 {
+        font-size: 40px;
+        font-weight: 700;
+        bottom: 30px;
+        animation-name: moveInRight;
+        animation-duration: 2s;
+    }
+
+    .About span {
+        font-size: 30px;
+        font-weight: 700;
+        animation-name: moveInLeft;
+        animation-duration: 2s;
+    }
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+/****end About***/
+
+/*****start SignIn-Form****/
+.SignIn-Form {
+    width: 50%;
+    margin: 40px 0 40px 0;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+/*****end form****/
+/*****start log in-Form****/
+.LogIn-Form {
+    width: 50%;
+    margin: 40px 0 40px 0;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+/*****end  log in form****/
+
+
+/*****start website sections****/
+.sections {
+    width: 100px;
+    height: 100vh;
+    background: #666;
+}
+
+    .sections .row {
+        text-align: center;
+    }
+
+        .sections .row .section {
+            justify-content: center;
+            height: 200px;
+            background: #666;
+            margin: 30px 50px 0 50px;
+            color: #222;
+            text-decoration: none;
+            float: left;
+        }
+
+.just-center {
+    justify-content: center;
+}
+
+.sections .row .section ul li {
+    text-decoration-style: none;
+}
+
+
+/*****end website sections****/
+
+/* End content*/
+
+/*start footer**/
+/*footer {
+    background: #484848;
+    color: #057ab0;
+    text-align: center;
+}*/
+/*end  footer**/
+footer {
+    background: #484848;
+}
+
+
+
+

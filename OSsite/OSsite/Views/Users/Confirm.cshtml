@@ -1,0 +1,54 @@
+﻿@model OSsite.Models.Order
+@{
+    Layout = null;
+    var item1 = ViewBag.name;
+    var item2 = ViewBag.price;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Confirm</title>
+</head>
+<body>
+    <div class="alert alert-warning" id="previous">
+        <strong>confirm your order</strong>
+        <input type="submit" class="btn btn-warning" value="confirm" onclick="verified()" />
+
+    </div>
+    <div class="alert alert-success" id="after">
+        <strong><span class="fa fa-check-circle">your order is confirmed now</span></strong>
+
+    </div>
+    <p>your order</p>
+
+    <p>
+        Address:
+        @Html.DisplayFor(model => model.Adress)
+    </p>
+    order:
+    <p>
+        @item1
+    </p>
+    <p>
+       price: @item2
+    </p>
+
+    <script>
+        function verified() {
+            $.ajax({
+                type: "post",
+                url: "Users/ConfirmOrder",
+                data: { 'id': '@ViewBag.Message' },
+                dataType: 'json',
+                success: function (msg) {
+
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<OSsite.Models.Order>
+
+@{
+    ViewBag.Title = "OrdersData";
+    Layout = "~/Views/Admins/Shared in Admin/_LayoutAdmin.cshtml";
+}
+
+<h2>Orders Data</h2>
+<hr />
+@foreach (var item in Model.Reverse())
+{
+    <div class="row">
+        <div class="col-9 messageTitle">
+            <span>Order from</span> @Html.DisplayFor(modelItem => item.Email) @if (item.readed == false)
+            {<i class="fa fa-circle" style=@ViewBag.Message></i>}
+        </div>
+        <div class="col-3">
+            <span id="ActionLink">@Html.ActionLink("Details", "OrderDetails", new { id = item.OrderID })</span>
+        </div>
+    </div>
+    <hr />
+}
+<script>
+    $(document).ready(function(){
+        $("#ActionLink").click(function () {
+            $(this).parent().parent().children(".messageTitle").children("i").hide();
+            @ViewBag.Message=" display:none";
+        });
+});
+</script>

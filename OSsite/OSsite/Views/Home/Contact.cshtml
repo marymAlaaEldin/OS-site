@@ -1,0 +1,66 @@
+﻿@model OSsite.Models.ContactU
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact Us</title>
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/formStyle.css")
+</head>
+<body>
+    <div class="top"></div>
+    <div class="LogIn-Form text-left just-center mt-5">
+        <h4 class="mb-5">Contact Us</h4>
+        <hr />
+        @using (Html.BeginForm("Contact"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-row just-center">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @*@Html.HiddenFor(model => model.OrderID)*@
+                <div class="col-lg-7 col-md-9 mb-3">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control inputStyle" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="col-lg-7 col-md-9 mb-3">
+                    @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.TextAreaFor(model => model.Message, new { @class = "form-control inputStyle" })
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group just-center row mt-5">
+                <input type="submit" value="Save" class="btn btn-primary pl-4 pr-4" />
+            </div>
+        }
+    </div>
+    <hr />
+    <div class="container ">
+        <div class="row">
+            <address class="col-6 justify-content-lg-start">
+                One Microsoft Way<br />
+                Redmond, WA 98052-6399<br />
+                <abbr title="Phone">P:</abbr>
+                01554790536
+            </address>
+            <address class="col-6">
+                <strong>Support:</strong>   <a href="mailto:ostaem03@gmail.com">ostaem03@gmail.com</a><br />
+            </address>
+        </div>        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

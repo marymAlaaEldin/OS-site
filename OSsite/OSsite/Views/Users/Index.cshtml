@@ -1,0 +1,84 @@
+﻿@model IEnumerable<OSsite.Models.Accessory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+@Styles.Render("~/Content/Site.css")
+@Styles.Render("~/Content/bootstrap.css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/Scripts/modernizr-2.8.3.js")
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css" />
+
+<h2>Index</h2>
+
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PicesNO)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PicesNO)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/Scripts/bootstrap.js")
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#products").css("backgroundColor", "red");
+        $('#products').DataTable({
+            pageLength: 10,
+            filter: true,
+            deferRender: true,
+            scrollY: 200,
+            scrollCollapse: true,
+            scroller: true
+        });
+
+        //$('#products').DataTable().column( 1 ).search('SearchText').draw();
+    });
+</script>
+@section Scripts
+{
+
+
+
+}
